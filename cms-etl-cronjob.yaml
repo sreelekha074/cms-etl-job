@@ -1,0 +1,16 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: cms-etl-job
+spec:
+  schedule: "0 3 * * *"  # every day at 3 AM UTC
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+          - name: cms-etl
+            image: sreelekha074/cms-etl:latest
+            imagePullPolicy: IfNotPresent
+          restartPolicy: OnFailure
+
