@@ -18,9 +18,9 @@ them as cleaned CSVs in your local directory. The job is scheduled using Kuberne
 ##  Step 1: Create  Folder
 
 Decide where you want the processed files to be saved. For example, on your Desktop:
-
-1. mkdir -p ~/Desktop/cms-etl-job   --- project folder
-2. cd ~/Desktop/cms-etl-job
+1. Clone the git repository using git clone https://github.com/sreelekha074/cms-etl-job.git
+  this will create the folder in your current working directory
+2. Go to that folder eg: cd ~/Desktop/cms-etl-job
 3. mkdir -p /Processed_csvs_output   ---- output folder inside projects folder
 
 ## Step 2: Generate and Apply the Kubernetes CronJob YAML
