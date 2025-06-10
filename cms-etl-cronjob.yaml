@@ -3,7 +3,7 @@ kind: CronJob
 metadata:
   name: cms-etl-job
 spec:
-  schedule: "0 3 * * *"  # every day at 3 AM UTC
+  schedule: "0 3 * * *"
   jobTemplate:
     spec:
       template:
@@ -12,5 +12,15 @@ spec:
           - name: cms-etl
             image: sreelekha074/cms-etl:latest
             imagePullPolicy: IfNotPresent
+            env:
+            - name: OUTPUT_DIR
+              value: /output
+            volumeMounts:
+            - name: host-output
+              mountPath: /output
           restartPolicy: OnFailure
-
+          volumes:
+          - name: host-output
+            hostPath:
+              path: "/Users/avinashkumarboora/Desktop/cms-etl-job/Processed_csvs_output"
+              type: DirectoryOrCreate

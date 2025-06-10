@@ -12,8 +12,9 @@ import threading
 
 # Defining parameters for metastore URl, metadata file and output directory
 API_URL_CMS = "https://data.cms.gov/provider-data/api/1/metastore/schemas/dataset/items"
-METADATA_FILE = "metadata_last_update.json"
-OUTPUT_DIR = "processed_csvs_output"
+OUTPUT_DIR = os.environ.get("OUTPUT_DIR", "processed_csvs_output")
+METADATA_FILE = os.path.join(OUTPUT_DIR, "metadata_last_update.json")
+
 ###SLEEP_INTERVAL = 86400  # 24 hours in seconds for rerun
 
 
